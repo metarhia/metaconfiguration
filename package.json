@@ -21,7 +21,7 @@
   "scripts": {
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",
     "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",
-    "test": "npm run lint"
+    "test": "npm run lint && node test"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -33,5 +33,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "@metarhia/common": "^2.1.0"
   }
 }
