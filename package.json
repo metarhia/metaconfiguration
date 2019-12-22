@@ -1,0 +1,32 @@
+{
+  "name": "@metarhia/config",
+  "version": "0.0.1",
+  "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
+  "description": "Metarhia Configuration Loader",
+  "license": "MIT",
+  "keywords": [
+    "metarhia",
+    "config",
+    "impress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metarhia/config"
+  },
+  "main": "config.js",
+  "readmeFilename": "README.md",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-metarhia": "^7.0.0"
+  }
+}
