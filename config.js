@@ -24,15 +24,17 @@ class Config {
     if (this.priority) {
       files.sort((s1, s2) => common.sortComparePriority(this.priority, s1, s2));
     }
+    const mode = '.' + this.mode;
     const sections = files
       .filter(file => {
         const fileExt = path.extname(file);
+        if (fileExt !== '.js') return false;
         const fileName = path.basename(file, fileExt);
         if (!this.mode) return !fileName.includes('.');
-        const modeName = path.extname(fileName);
-        const fName = `${fileName}.${this.mode}${fileExt}`;
-        const noMode = modeName === '' || modeName === '.' + this.mode;
-        return !files.includes(fName) && noMode;
+        const fileMode = path.extname(fileName);
+        if (fileMode) return fileMode === mode;
+        const defaultName = `${fileName}${mode}.js`;
+        return !files.includes(defaultName);
       })
       .map(file => this.loadFile(file));
     await Promise.all(sections);
@@ -41,12 +43,7 @@ class Config {
 
   async loadFile(file) {
     const configFile = path.join(this.dir, file);
-    const fileExt = path.extname(file);
-    const fileName = path.basename(file, fileExt);
-    const sectionName = this.mode
-      ? path.basename(fileName, '.' + this.mode)
-      : fileName;
-    if (fileExt !== '.js' || this.sections[sectionName]) return;
+    const sectionName = file.substring(0, file.indexOf('.'));
     const exports = await this.createScript(configFile);
     this.sections[sectionName] = exports;
   }
