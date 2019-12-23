@@ -14,8 +14,9 @@ class Config {
     this.sections = {};
     this.dir = dir;
     this.mode = mode;
-    this.sandbox = sandbox;
+    this.sandbox = sandbox || vm.createContext({});
     this.priority = priority;
+    return this.load();
   }
 
   async load() {
@@ -35,6 +36,7 @@ class Config {
       })
       .map(file => this.loadFile(file));
     await Promise.all(sections);
+    return this;
   }
 
   async loadFile(file) {
