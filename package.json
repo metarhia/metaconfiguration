@@ -1,6 +1,6 @@
 {
   "name": "@metarhia/config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "description": "Metarhia Configuration Loader",
   "license": "MIT",
