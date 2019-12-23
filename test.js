@@ -17,8 +17,9 @@ const Config = require('./config.js');
 })();
 
 (async () => {
-  const sandbox = { Duration: common.duration, mode: 'test' };
+  const sandbox = { Duration: common.duration };
   vm.createContext(sandbox);
-  const config = await new Config('./examples/example3', { sandbox });
+  const options = { sandbox, mode: 'test' };
+  const config = await new Config('./examples/example3', options);
   console.dir({ config }, { depth: null });
 })();
