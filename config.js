@@ -9,12 +9,11 @@ const SCRIPT_TIMEOUT = 5000;
 
 class Config {
   constructor(dir, options = {}) {
-    const { mode = '', sandbox = null, priority = null } = options;
+    const { mode = '', sandbox = null } = options;
     this.sections = {};
     this.dir = dir;
     this.mode = mode;
     this.sandbox = sandbox || createContext({});
-    this.priority = priority;
     return this.load();
   }
 
