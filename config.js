@@ -8,17 +8,16 @@ const USE_STRICT = `'use strict';\n`;
 const SCRIPT_TIMEOUT = 5000;
 
 class Config {
-  constructor(dir, options = {}) {
-    const { mode = '', sandbox = null } = options;
+  constructor(path, { mode = '', sandbox = null } = {}) {
     this.sections = {};
-    this.dir = dir;
+    this.path = path;
     this.mode = mode;
     this.sandbox = sandbox || createContext({});
     return this.load();
   }
 
   async load() {
-    const files = await readdir(this.dir);
+    const files = await readdir(this.path);
     const mode = '.' + this.mode;
     const sections = files
       .filter(file => {
@@ -37,7 +36,7 @@ class Config {
   }
 
   async loadFile(file) {
-    const configFile = join(this.dir, file);
+    const configFile = join(this.path, file);
     const sectionName = file.substring(0, file.indexOf('.'));
     const exports = await this.createScript(configFile);
     this.sections[sectionName] = exports;
