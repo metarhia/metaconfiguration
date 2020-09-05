@@ -13,6 +13,7 @@ metatests.test('Simple server', async test => {
     path: './examples/example1',
     mode: '',
     sandbox: {},
+    names: null,
   };
   const config = await new Config('./examples/example1');
   test.strictSame(config, testConfig);
@@ -35,6 +36,7 @@ metatests.test('Server with logger', async test => {
     path: './examples/example2',
     mode: '',
     sandbox,
+    names: null,
   };
   vm.createContext(sandbox);
   const config = await new Config('./examples/example2', { sandbox });
@@ -58,6 +60,7 @@ metatests.test('Application server', async test => {
     path: './examples/example3',
     mode: 'test',
     sandbox,
+    names: null,
   };
   vm.createContext(sandbox);
   const options = { sandbox, mode: 'test' };
@@ -74,5 +77,39 @@ metatests.test('Incorrect path error', async test => {
     test.strictSame(error.code, 'ENOENT');
   }
 
+  test.end();
+});
+
+metatests.test('Specified sections', async test => {
+  const testConfig = {
+    sections: {
+      application: { name: 'Application name' },
+    },
+    path: './examples/example3',
+    mode: '',
+    sandbox: {},
+    names: ['application', 'gateway'],
+  };
+  const names = ['application', 'gateway'];
+  const config = await new Config('./examples/example3', names);
+  test.strictSame(config, testConfig);
+  test.end();
+});
+
+metatests.test('Specified sections with options', async test => {
+  const testConfig = {
+    sections: {
+      application: { name: 'Application name' },
+      gateway: { host: '10.0.0.1', port: 2000 },
+    },
+    path: './examples/example3',
+    mode: 'test',
+    sandbox: {},
+    names: ['application', 'gateway'],
+  };
+  const options = { mode: 'test' };
+  const names = ['application', 'gateway'];
+  const config = await new Config('./examples/example3', options, names);
+  test.strictSame(config, testConfig);
   test.end();
 });
