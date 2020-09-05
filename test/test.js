@@ -13,6 +13,7 @@ metatests.test('Simple server', async test => {
     path: './examples/example1',
     mode: '',
     sandbox: {},
+    names: null,
   };
   const config = await new Config('./examples/example1');
   test.strictSame(config, testConfig);
@@ -35,6 +36,7 @@ metatests.test('Server with logger', async test => {
     path: './examples/example2',
     mode: '',
     sandbox,
+    names: null,
   };
   vm.createContext(sandbox);
   const config = await new Config('./examples/example2', { sandbox });
@@ -58,6 +60,7 @@ metatests.test('Application server', async test => {
     path: './examples/example3',
     mode: 'test',
     sandbox,
+    names: null,
   };
   vm.createContext(sandbox);
   const options = { sandbox, mode: 'test' };
