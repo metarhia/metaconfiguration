@@ -30,11 +30,11 @@ class Config {
         const fileExt = extname(file);
         if (fileExt !== '.js') return false;
         const fileName = basename(file, fileExt);
-        if (!this.mode) return !fileName.includes('.');
         const fileMode = extname(fileName);
-        if (fileMode) return fileMode === mode;
         const sectionName = basename(fileName, fileMode);
         if (this.names && !this.names.includes(sectionName)) return false;
+        if (!this.mode) return !fileName.includes('.');
+        if (fileMode) return fileMode === mode;
         const defaultName = `${fileName}${mode}.js`;
         return !files.includes(defaultName);
       })
