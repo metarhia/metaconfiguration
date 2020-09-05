@@ -8,11 +8,17 @@ const USE_STRICT = `'use strict';\n`;
 const SCRIPT_TIMEOUT = 5000;
 
 class Config {
-  constructor(path, { mode = '', sandbox = null } = {}) {
+  constructor(path, options, names = null) {
+    if (Array.isArray(options)) {
+      names = options;
+      options = null;
+    }
+    if (!options) options = {};
+    this.names = names;
     this.sections = {};
     this.path = path;
-    this.mode = mode;
-    this.sandbox = sandbox || createContext({});
+    this.mode = options.mode || '';
+    this.sandbox = options.sandbox || createContext({});
     return this.load();
   }
 
@@ -24,8 +30,10 @@ class Config {
         const fileExt = extname(file);
         if (fileExt !== '.js') return false;
         const fileName = basename(file, fileExt);
-        if (!this.mode) return !fileName.includes('.');
         const fileMode = extname(fileName);
+        const sectionName = basename(fileName, fileMode);
+        if (this.names && !this.names.includes(sectionName)) return false;
+        if (!this.mode) return !fileName.includes('.');
         if (fileMode) return fileMode === mode;
         const defaultName = `${fileName}${mode}.js`;
         return !files.includes(defaultName);
