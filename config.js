@@ -40,7 +40,7 @@ class Config {
       })
       .map(file => this.loadFile(file));
     await Promise.all(sections);
-    return this;
+    return this.sections;
   }
 
   async loadFile(file) {
