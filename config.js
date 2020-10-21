@@ -1,11 +1,8 @@
 'use strict';
 
-const { createContext, Script } = require('vm');
+const { createContext, readScript } = require('metavm');
 const { extname, basename, join } = require('path');
-const { readdir, readFile } = require('fs').promises;
-
-const USE_STRICT = `'use strict';\n`;
-const SCRIPT_TIMEOUT = 5000;
+const { readdir } = require('fs').promises;
 
 class Config {
   constructor(path, options, names = null) {
@@ -46,23 +43,8 @@ class Config {
   async loadFile(file) {
     const configFile = join(this.path, file);
     const sectionName = file.substring(0, file.indexOf('.'));
-    const exports = await this.createScript(configFile);
+    const { exports } = await readScript(configFile, this.sandbox);
     this.sections[sectionName] = exports;
-  }
-
-  async createScript(fileName) {
-    const src = await readFile(fileName);
-    const scriptOptions = {
-      filename: fileName,
-      lineOffset: -2, // to compensate USE_STRICT wrapper
-    };
-    const code = USE_STRICT + src;
-    const script = new Script(code, scriptOptions);
-    const runOptions = {
-      displayErrors: false,
-      timeout: SCRIPT_TIMEOUT, // msec
-    };
-    return script.runInContext(this.sandbox, runOptions);
   }
 }
 
