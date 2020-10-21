@@ -1,13 +1,16 @@
 {
   "name": "@metarhia/config",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "description": "Metarhia Configuration Loader",
   "license": "MIT",
   "keywords": [
     "metarhia",
     "config",
-    "impress"
+    "configuration",
+    "impress",
+    "environment",
+    "env"
   ],
   "repository": {
     "type": "git",
