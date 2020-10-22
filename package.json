@@ -28,7 +28,7 @@
     "node": ">=12.9.0"
   },
   "dependencies": {
-    "metavm": "0.0.5"
+    "metavm": "0.1.0"
   },
   "devDependencies": {
     "@metarhia/common": "^2.2.0",

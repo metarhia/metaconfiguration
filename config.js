@@ -43,7 +43,8 @@ class Config {
   async loadFile(file) {
     const configFile = path.join(this.path, file);
     const sectionName = file.substring(0, file.indexOf('.'));
-    const { exports } = await metavm.readScript(configFile, this.sandbox);
+    const options = { context: this.sandbox };
+    const { exports } = await metavm.readScript(configFile, options);
     this.sections[sectionName] = exports;
   }
 }
