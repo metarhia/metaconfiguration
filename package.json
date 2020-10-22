@@ -1,6 +1,6 @@
 {
   "name": "@metarhia/config",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "description": "Metarhia Configuration Loader",
   "license": "MIT",
@@ -32,10 +32,10 @@
   },
   "devDependencies": {
     "@metarhia/common": "^2.2.0",
-    "eslint": "^7.9.0",
+    "eslint": "^7.11.0",
     "eslint-config-metarhia": "^7.0.1",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
     "metatests": "^0.7.2",
     "prettier": "^2.1.2"
