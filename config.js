@@ -1,11 +1,11 @@
 'use strict';
 
-const { createContext, readScript } = require('metavm');
-const { extname, basename, join } = require('path');
-const { readdir } = require('fs').promises;
+const metavm = require('metavm');
+const path = require('path');
+const fs = require('fs').promises;
 
 class Config {
-  constructor(path, options, names = null) {
+  constructor(dirPath, options, names = null) {
     if (Array.isArray(options)) {
       names = options;
       options = null;
@@ -13,22 +13,22 @@ class Config {
     if (!options) options = {};
     this.names = names;
     this.sections = {};
-    this.path = path;
+    this.path = dirPath;
     this.mode = options.mode || '';
-    this.sandbox = options.sandbox || createContext({});
+    this.sandbox = options.sandbox || metavm.createContext();
     return this.load();
   }
 
   async load() {
-    const files = await readdir(this.path);
+    const files = await fs.readdir(this.path);
     const mode = '.' + this.mode;
     const sections = files
       .filter(file => {
-        const fileExt = extname(file);
+        const fileExt = path.extname(file);
         if (fileExt !== '.js') return false;
-        const fileName = basename(file, fileExt);
-        const fileMode = extname(fileName);
-        const sectionName = basename(fileName, fileMode);
+        const fileName = path.basename(file, fileExt);
+        const fileMode = path.extname(fileName);
+        const sectionName = path.basename(fileName, fileMode);
         if (this.names && !this.names.includes(sectionName)) return false;
         if (!this.mode) return !fileName.includes('.');
         if (fileMode) return fileMode === mode;
@@ -41,9 +41,9 @@ class Config {
   }
 
   async loadFile(file) {
-    const configFile = join(this.path, file);
+    const configFile = path.join(this.path, file);
     const sectionName = file.substring(0, file.indexOf('.'));
-    const { exports } = await readScript(configFile, this.sandbox);
+    const { exports } = await metavm.readScript(configFile, this.sandbox);
     this.sections[sectionName] = exports;
   }
 }
