@@ -2,14 +2,23 @@
 
 const vm = require('vm');
 const common = require('@metarhia/common');
-const { Config } = require('..');
+const { Config, readConfig } = require('..');
 const metatests = require('metatests');
 
-metatests.test('Simple server', async test => {
+metatests.test('Config class constructor', async test => {
   const sections = {
     server: { transport: 'http', address: '127.0.0.1', ports: 80 },
   };
   const config = await new Config('./examples/example1');
+  test.strictSame(config, sections);
+  test.end();
+});
+
+metatests.test('Config factory', async test => {
+  const sections = {
+    server: { transport: 'http', address: '127.0.0.1', ports: 80 },
+  };
+  const config = await readConfig('./examples/example1');
   test.strictSame(config, sections);
   test.end();
 });

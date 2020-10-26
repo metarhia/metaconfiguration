@@ -49,4 +49,7 @@ class Config {
   }
 }
 
-module.exports = { Config };
+const readConfig = (dirPath, options, names) =>
+  new Config(dirPath, options, names);
+
+module.exports = { Config, readConfig };
