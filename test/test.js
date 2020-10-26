@@ -2,7 +2,7 @@
 
 const vm = require('vm');
 const common = require('@metarhia/common');
-const Config = require('../config.js');
+const { Config } = require('..');
 const metatests = require('metatests');
 
 metatests.test('Simple server', async test => {
