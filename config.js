@@ -22,20 +22,19 @@ class Config {
   async load() {
     const files = await fs.readdir(this.path);
     const mode = '.' + this.mode;
-    const sections = files
-      .filter(file => {
-        const fileExt = path.extname(file);
-        if (fileExt !== '.js') return false;
-        const fileName = path.basename(file, fileExt);
-        const fileMode = path.extname(fileName);
-        const sectionName = path.basename(fileName, fileMode);
-        if (this.names && !this.names.includes(sectionName)) return false;
-        if (!this.mode) return !fileName.includes('.');
-        if (fileMode) return fileMode === mode;
-        const defaultName = `${fileName}${mode}.js`;
-        return !files.includes(defaultName);
-      })
-      .map(file => this.loadFile(file));
+    const sections = [];
+    for (const file of files) {
+      const fileExt = path.extname(file);
+      if (fileExt !== '.js') continue;
+      const fileName = path.basename(file, fileExt);
+      const fileMode = path.extname(fileName);
+      const sectionName = path.basename(fileName, fileMode);
+      if (this.names && !this.names.includes(sectionName)) continue;
+      if (!this.mode && fileName.includes('.')) continue;
+      if (fileMode && fileMode !== mode) continue;
+      const defaultName = `${fileName}${mode}.js`;
+      if (!files.includes(defaultName)) sections.push(this.loadFile(file));
+    }
     await Promise.all(sections);
     return this.sections;
   }
