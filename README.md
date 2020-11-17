@@ -16,16 +16,29 @@ $ npm install @metarhia/config
 Load configuration with asynchronous constructor:
 ```js
 const { Config } = require('..');
-const config = await new Config('./pathToConfigDirectory');
+const config = await new Config('./configDirectory');
 ```
 or factory:
 ```js
 const { readConfig } = require('..');
-const config = await readConfig('./pathToConfigDirectory');
+const config = await readConfig('./configDirectory');
 ```
-Specify certain config sections:
+Specify certain configuration sections to load:
 ```js
-const { readConfig } = require('..');
+const { Config } = require('..');
 const names = ['application', 'gateway'];
-const config = await new Config('./examples/example3', names);
+const config = await new Config('./configDirectory', names);
+```
+Loag configuration in specified mode:
+```js
+const { Config } = require('..');
+const options = { mode: 'test' };
+const config = await new Config('./configDirectory', options);
+```
+Specify sections and mode:
+```js
+const { Config } = require('..');
+const options = { mode: 'test' };
+const names = ['application', 'gateway'];
+const config = await new Config('./configDirectory', options, names);
 ```
