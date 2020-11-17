@@ -42,3 +42,12 @@ const options = { mode: 'test' };
 const names = ['application', 'gateway'];
 const config = await new Config('./configDirectory', options, names);
 ```
+Use custom context (sandbox) to execute configuration js file in it:
+```js
+const vm = require('vm');
+const common = require('@metarhia/common');
+const { Config } = require('@metarhia/config');
+const sandbox = { Duration: common.duration };
+vm.createContext(sandbox);
+const config = await new Config('./configDirectory', { sandbox });
+```
