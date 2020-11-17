@@ -17,6 +17,22 @@ Load configuration with asynchronous constructor:
 ```js
 const { Config } = require('@metarhia/config');
 const config = await new Config('./configDirectory');
+console.log(config);
+// Output example:
+// {
+//   logger: {
+//     enabled: true,
+//     keepDays: 100,
+//     writeInterval: 3000,
+//     writeBuffer: 65536,
+//     toStdout: [ 'system', 'fatal', 'error' ]
+//   },
+//   server: {
+//     transport: 'http',
+//     address: '127.0.0.1',
+//     ports: 80
+//   }
+// }
 ```
 or factory:
 ```js
