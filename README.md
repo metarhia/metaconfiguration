@@ -10,3 +10,35 @@
 ```bash
 $ npm install @metarhia/config
 ```
+
+## Usage
+
+Load configuration with asynchronous constructor:
+```js
+const { Config } = require('@metarhia/config');
+const config = await new Config('./configDirectory');
+```
+or factory:
+```js
+const { readConfig } = require('@metarhia/config');
+const config = await readConfig('./configDirectory');
+```
+Specify certain configuration sections to load:
+```js
+const { Config } = require('@metarhia/config');
+const names = ['application', 'gateway'];
+const config = await new Config('./configDirectory', names);
+```
+Loag configuration in specified mode:
+```js
+const { Config } = require('@metarhia/config');
+const options = { mode: 'test' };
+const config = await new Config('./configDirectory', options);
+```
+Specify sections and mode:
+```js
+const { Config } = require('@metarhia/config');
+const options = { mode: 'test' };
+const names = ['application', 'gateway'];
+const config = await new Config('./configDirectory', options, names);
+```
