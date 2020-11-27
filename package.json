@@ -7,14 +7,23 @@
   "keywords": [
     "metarhia",
     "config",
+    "application",
     "configuration",
     "impress",
     "environment",
-    "env"
+    "env",
+    "metaserverless",
+    "app",
+    "metavm"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/metarhia/config"
+  },
+  "homepage": "https://github.com/metarhia",
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/tshemsedinov"
   },
   "main": "config.js",
   "readmeFilename": "README.md",
