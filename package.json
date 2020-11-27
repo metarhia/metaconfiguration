@@ -25,7 +25,7 @@
     "test": "npm run -s lint && metatests test"
   },
   "engines": {
-    "node": ">=12.9.0"
+    "node": "^12.9 || 14 || 15"
   },
   "dependencies": {
     "metavm": "0.1.0"
