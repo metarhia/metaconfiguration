@@ -2,25 +2,21 @@
 
 const metavm = require('metavm');
 const path = require('path');
-const fs = require('fs').promises;
+const fsp = require('fs').promises;
 
 class Config {
-  constructor(dirPath, options, names = null) {
-    if (Array.isArray(options)) {
-      names = options;
-      options = null;
-    }
-    if (!options) options = {};
-    this.names = names;
+  constructor(dirPath, options = {}) {
+    const { names, mode, sandbox } = options;
     this.sections = {};
     this.path = dirPath;
-    this.mode = options.mode || '';
-    this.sandbox = options.sandbox || metavm.createContext();
+    this.names = names || null;
+    this.mode = mode || '';
+    this.sandbox = sandbox || metavm.createContext();
     return this.load();
   }
 
   async load() {
-    const files = await fs.readdir(this.path);
+    const files = await fsp.readdir(this.path);
     const mode = '.' + this.mode;
     const sections = [];
     for (const file of files) {

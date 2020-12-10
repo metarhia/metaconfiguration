@@ -24,7 +24,6 @@ metatests.test('Config factory', async test => {
 });
 
 metatests.test('Server with logger', async test => {
-  const sandbox = { Duration: common.duration };
   const sections = {
     server: { transport: 'http', address: '127.0.0.1', ports: 80 },
     logger: {
@@ -35,8 +34,10 @@ metatests.test('Server with logger', async test => {
       toStdout: ['system', 'fatal', 'error'],
     },
   };
+  const sandbox = { Duration: common.duration };
   vm.createContext(sandbox);
-  const config = await new Config('./examples/example2', { sandbox });
+  const options = { sandbox };
+  const config = await new Config('./examples/example2', options);
   test.strictSame(config, sections);
   test.end();
 });
@@ -75,8 +76,8 @@ metatests.test('Specified sections', async test => {
   const sections = {
     application: { name: 'Application name' },
   };
-  const names = ['application', 'gateway'];
-  const config = await new Config('./examples/example3', names);
+  const options = { names: ['application', 'gateway'] };
+  const config = await new Config('./examples/example3', options);
   test.strictSame(config, sections);
   test.end();
 });
@@ -86,9 +87,8 @@ metatests.test('Specified sections with options', async test => {
     application: { name: 'Application name' },
     gateway: { host: '10.0.0.1', port: 2000 },
   };
-  const options = { mode: 'test' };
-  const names = ['application', 'gateway'];
-  const config = await new Config('./examples/example3', options, names);
+  const options = { mode: 'test', names: ['application', 'gateway'] };
+  const config = await new Config('./examples/example3', options);
   test.strictSame(config, sections);
   test.end();
 });
