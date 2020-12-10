@@ -42,8 +42,8 @@ const config = await readConfig('./configDirectory');
 Specify certain configuration sections to load:
 ```js
 const { Config } = require('@metarhia/config');
-const names = ['application', 'gateway'];
-const config = await new Config('./configDirectory', names);
+const options = { names: ['application', 'gateway'] };
+const config = await new Config('./configDirectory', options);
 ```
 Loag configuration in specified mode:
 ```js
@@ -54,9 +54,8 @@ const config = await new Config('./configDirectory', options);
 Specify sections and mode:
 ```js
 const { Config } = require('@metarhia/config');
-const options = { mode: 'test' };
-const names = ['application', 'gateway'];
-const config = await new Config('./configDirectory', options, names);
+const options = { mode: 'test', names: ['application', 'gateway'] };
+const config = await new Config('./configDirectory', options);
 ```
 Use custom context (sandbox) to execute configuration js file in it:
 ```js
@@ -65,5 +64,6 @@ const common = require('@metarhia/common');
 const { Config } = require('@metarhia/config');
 const sandbox = { Duration: common.duration };
 vm.createContext(sandbox);
-const config = await new Config('./configDirectory', { sandbox });
+const options = { sandbox };
+const config = await new Config('./configDirectory', options);
 ```
