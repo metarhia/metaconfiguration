@@ -4,12 +4,12 @@
 [![NPM Version](https://badge.fury.io/js/%40metarhia%2Fconfig.svg)](https://badge.fury.io/js/%40metarhia%2Fconfig)
 [![NPM Downloads/Month](https://img.shields.io/npm/dm/@metarhia/config.svg)](https://www.npmjs.com/package/@metarhia/config)
 [![NPM Downloads](https://img.shields.io/npm/dt/@metarhia/config.svg)](https://www.npmjs.com/package/@metarhia/config)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/metarhia/config/blob/master/LICENSE)
 
 ## Installation
 
-```bash
-$ npm install @metarhia/config
-```
+- `npm install @metarhia/config --save`
+- `const { Config } = require('@metarhia/config');`
 
 ## Usage
 
