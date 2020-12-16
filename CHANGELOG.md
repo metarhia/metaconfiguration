@@ -2,12 +2,13 @@
 
 ## [Unreleased][unreleased]
 
-To be released in 2.0.0
+## [2.x][] - 2020-12-17
 
 - Use `metavm` instead of `vm`
 - Return promise with sections from constructor
 - Move `names` to `options` argument
 - Use Github Actions instead of Travis CI
+- Add security plicy, authors list and changelog
 
 ## [1.x][] - 2020-09-06
 
@@ -22,6 +23,7 @@ To be released in 2.0.0
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/config/compare/v1.x...HEAD
+[unreleased]: https://github.com/metarhia/config/compare/v2.x...HEAD
+[2.x]: https://github.com/metarhia/config/compare/v1.x...v2.x
 [1.x]: https://github.com/metarhia/config/compare/v0.x...v1.x
 [0.x]: https://github.com/metarhia/config/releases/tag/v0.x
