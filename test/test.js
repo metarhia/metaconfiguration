@@ -5,7 +5,7 @@ const common = require('@metarhia/common');
 const { Config, readConfig } = require('..');
 const metatests = require('metatests');
 
-metatests.test('Config class constructor', async test => {
+metatests.test('Config class constructor', async (test) => {
   const sections = {
     server: { transport: 'http', address: '127.0.0.1', ports: 80 },
   };
@@ -14,7 +14,7 @@ metatests.test('Config class constructor', async test => {
   test.end();
 });
 
-metatests.test('Config factory', async test => {
+metatests.test('Config factory', async (test) => {
   const sections = {
     server: { transport: 'http', address: '127.0.0.1', ports: 80 },
   };
@@ -23,7 +23,7 @@ metatests.test('Config factory', async test => {
   test.end();
 });
 
-metatests.test('Server with logger', async test => {
+metatests.test('Server with logger', async (test) => {
   const sections = {
     server: { transport: 'http', address: '127.0.0.1', ports: 80 },
     logger: {
@@ -42,7 +42,7 @@ metatests.test('Server with logger', async test => {
   test.end();
 });
 
-metatests.test('Application server', async test => {
+metatests.test('Application server', async (test) => {
   const sandbox = { Duration: common.duration };
   const sections = {
     application: { name: 'Application name' },
@@ -61,7 +61,7 @@ metatests.test('Application server', async test => {
   test.end();
 });
 
-metatests.test('Incorrect path error', async test => {
+metatests.test('Incorrect path error', async (test) => {
   try {
     const config = await new Config('./examples/example4');
     console.dir(config);
@@ -72,7 +72,7 @@ metatests.test('Incorrect path error', async test => {
   test.end();
 });
 
-metatests.test('Specified sections', async test => {
+metatests.test('Specified sections', async (test) => {
   const sections = {
     application: { name: 'Application name' },
   };
@@ -82,7 +82,7 @@ metatests.test('Specified sections', async test => {
   test.end();
 });
 
-metatests.test('Specified sections with options', async test => {
+metatests.test('Specified sections with options', async (test) => {
   const sections = {
     application: { name: 'Application name' },
     gateway: { host: '10.0.0.1', port: 2000 },
