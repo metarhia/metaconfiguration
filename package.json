@@ -20,6 +20,10 @@
     "type": "git",
     "url": "https://github.com/metarhia/config"
   },
+  "bugs": {
+    "url": "https://github.com/metarhia/config/issues",
+    "email": "timur.shemsedinov@gmail.com"
+  },
   "homepage": "https://github.com/metarhia",
   "funding": {
     "type": "patreon",
