@@ -18,7 +18,7 @@ class Config {
   async load() {
     const files = await fsp.readdir(this.path);
     const mode = '.' + this.mode;
-    const sections = [];
+    const names = [];
     for (const file of files) {
       const fileExt = path.extname(file);
       if (fileExt !== '.js') continue;
@@ -29,9 +29,9 @@ class Config {
       if (!this.mode && fileName.includes('.')) continue;
       if (fileMode && fileMode !== mode) continue;
       const defaultName = `${fileName}${mode}.js`;
-      if (!files.includes(defaultName)) sections.push(this.loadFile(file));
+      if (!files.includes(defaultName)) names.push(this.loadFile(file));
     }
-    await Promise.all(sections);
+    await Promise.all(names);
     return this.sections;
   }
 
