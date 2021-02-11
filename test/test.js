@@ -34,16 +34,16 @@ metatests.test('Server with logger', async (test) => {
       toStdout: ['system', 'fatal', 'error'],
     },
   };
-  const sandbox = { Duration: common.duration };
-  vm.createContext(sandbox);
-  const options = { sandbox };
+  const context = { Duration: common.duration };
+  vm.createContext(context);
+  const options = { context };
   const config = await new Config('./examples/example2', options);
   test.strictSame(config, sections);
   test.end();
 });
 
 metatests.test('Application server', async (test) => {
-  const sandbox = { Duration: common.duration };
+  const context = { Duration: common.duration };
   const sections = {
     application: { name: 'Application name' },
     gateway: { host: '10.0.0.1', port: 2000 },
@@ -54,8 +54,8 @@ metatests.test('Application server', async (test) => {
     server: { transport: 'http', address: '127.0.0.1', ports: 8080 },
     timeouts: { cache: 30000, relpy: 5000, query: 3000 },
   };
-  vm.createContext(sandbox);
-  const options = { sandbox, mode: 'test' };
+  vm.createContext(context);
+  const options = { context, mode: 'test' };
   const config = await new Config('./examples/example3', options);
   test.strictSame(config, sections);
   test.end();
