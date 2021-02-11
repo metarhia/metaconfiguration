@@ -6,12 +6,12 @@ const fsp = require('fs').promises;
 
 class Config {
   constructor(dirPath, options = {}) {
-    const { names, mode, sandbox } = options;
+    const { names, mode, context, sandbox } = options;
     this.sections = {};
     this.path = dirPath;
     this.names = names || null;
     this.mode = mode || '';
-    this.sandbox = sandbox || metavm.createContext();
+    this.context = context || sandbox || metavm.createContext();
     return this.load();
   }
 
@@ -38,7 +38,7 @@ class Config {
   async loadFile(file) {
     const configFile = path.join(this.path, file);
     const sectionName = file.substring(0, file.indexOf('.'));
-    const options = { context: this.sandbox };
+    const options = { context: this.context };
     const { exports } = await metavm.readScript(configFile, options);
     this.sections[sectionName] = exports;
   }

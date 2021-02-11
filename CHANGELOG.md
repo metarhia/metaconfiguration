@@ -2,7 +2,10 @@
 
 ## [Unreleased][unreleased]
 
-## [2.x][] - 2020-12-17
+- Change signature `await new Config(dirPath, { sandbox })` to
+  `new Config(dirPath, { context })` for naming consistency with `metavm`
+
+## [2.0.0][] - 2020-12-17
 
 - Use `metavm` instead of `vm`
 - Return promise with sections from constructor
@@ -23,7 +26,7 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/config/compare/v2.x...HEAD
-[2.x]: https://github.com/metarhia/config/compare/v1.x...v2.x
+[unreleased]: https://github.com/metarhia/config/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/metarhia/config/compare/v1.x...v2.0.0
 [1.x]: https://github.com/metarhia/config/compare/v0.x...v1.x
 [0.x]: https://github.com/metarhia/config/releases/tag/v0.x
