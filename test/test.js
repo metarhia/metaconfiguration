@@ -92,3 +92,18 @@ metatests.test('Specified sections with options', async (test) => {
   test.strictSame(config, sections);
   test.end();
 });
+
+metatests.test('Compatibility with old signature', async (test) => {
+  const context = { process };
+  const sections = {
+    application: {
+      name: 'Application name',
+      user: process.env.USER,
+    },
+  };
+  vm.createContext(context);
+  const options = { context, mode: 'test' };
+  const config = await new Config('./examples/example5', options);
+  test.strictSame(config, sections);
+  test.end();
+});
