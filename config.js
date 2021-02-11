@@ -18,20 +18,20 @@ class Config {
   async load() {
     const files = await fsp.readdir(this.path);
     const mode = '.' + this.mode;
-    const chanks = [];
+    const names = [];
     for (const file of files) {
       const fileExt = path.extname(file);
       if (fileExt !== '.js') continue;
       const fileName = path.basename(file, fileExt);
       const fileMode = path.extname(fileName);
-      const chankName = path.basename(fileName, fileMode);
-      if (this.names && !this.names.includes(chankName)) continue;
+      const sectionName = path.basename(fileName, fileMode);
+      if (this.names && !this.names.includes(sectionName)) continue;
       if (!this.mode && fileName.includes('.')) continue;
       if (fileMode && fileMode !== mode) continue;
       const defaultName = `${fileName}${mode}.js`;
-      if (!files.includes(defaultName)) chanks.push(this.loadFile(file));
+      if (!files.includes(defaultName)) names.push(this.loadFile(file));
     }
-    await Promise.all(chanks);
+    await Promise.all(names);
     return this.sections;
   }
 
