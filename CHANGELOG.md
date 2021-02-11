@@ -2,8 +2,11 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.0][] - 2021-02-11
+
 - Change signature `await new Config(dirPath, { sandbox })` to
   `new Config(dirPath, { context })` for naming consistency with `metavm`
+- Internal refactoring: rename variables
 
 ## [2.0.0][] - 2020-12-17
 
@@ -26,7 +29,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/config/compare/v2.0.0...HEAD
+[unreleased]: https://github.com/metarhia/config/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/metarhia/config/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/metarhia/config/compare/v1.x...v2.0.0
 [1.x]: https://github.com/metarhia/config/compare/v0.x...v1.x
 [0.x]: https://github.com/metarhia/config/releases/tag/v0.x
