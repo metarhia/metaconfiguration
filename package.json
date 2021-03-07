@@ -30,12 +30,14 @@
     "url": "https://www.patreon.com/tshemsedinov"
   },
   "main": "config.js",
+  "types": "types/config.d.ts",
   "readmeFilename": "README.md",
   "files": [],
   "scripts": {
-    "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",
-    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \".*rc\" \"**/*.yml\"",
-    "test": "npm run -s lint && metatests test"
+    "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
+    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
+    "types": "tsc -p types/tsconfig.json",
+    "test": "npm run -s lint && npm run types && metatests test"
   },
   "engines": {
     "node": "^12.9 || 14 || 15"
@@ -45,12 +47,14 @@
   },
   "devDependencies": {
     "@metarhia/common": "^2.2.0",
+    "@types/node": "^14.14.31",
     "eslint": "^7.19.0",
     "eslint-config-metarhia": "^7.0.1",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "metatests": "^0.7.2",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.3"
   }
 }

@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+- Add typing for Config class
+
 ## [2.1.0][] - 2021-02-11
 
 - Change signature `await new Config(dirPath, { sandbox })` to
