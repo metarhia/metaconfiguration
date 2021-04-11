@@ -1,6 +1,6 @@
 {
   "name": "@metarhia/config",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "description": "Metarhia Configuration Loader",
   "license": "MIT",
@@ -32,7 +32,9 @@
   "main": "config.js",
   "types": "types/config.d.ts",
   "readmeFilename": "README.md",
-  "files": [],
+  "files": [
+    "types/"
+  ],
   "scripts": {
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
     "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",

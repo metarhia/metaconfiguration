@@ -2,7 +2,11 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.1][] - 2021-04-12
+
+- Update dependencies, fix vulnerabilities
 - Add typing for Config class
+- Remove names argument from configuration factory
 
 ## [2.1.0][] - 2021-02-11
 
@@ -31,7 +35,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/config/compare/v2.1.0...HEAD
+[unreleased]: https://github.com/metarhia/config/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/metarhia/config/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/metarhia/config/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/metarhia/config/compare/v1.x...v2.0.0
 [1.x]: https://github.com/metarhia/config/compare/v0.x...v1.x
