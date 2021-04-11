@@ -1,4 +1,4 @@
-import vm = require('vm');
+import * as vm from 'vm';
 
 interface ConfigOptions {
   names?: Array<string>;
