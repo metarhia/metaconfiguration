@@ -2,7 +2,11 @@
 
 ## [Unreleased][unreleased]
 
-## [2.1.2][] - 2021-05-20
+## [2.1.4][] - 2021-05-20
+
+- First release `metaconfiguration`, previously `@metarhia/config`
+
+## [2.1.3][] - 2021-05-20
 
 - Latest release `@metarhia/config`, next will be `metaconfiguration`
 - Update dependencies, fix vulnerabilities
@@ -40,10 +44,11 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/config/compare/v2.1.2...HEAD
-[2.1.2]: https://github.com/metarhia/config/compare/v2.1.1...v2.1.2
-[2.1.1]: https://github.com/metarhia/config/compare/v2.1.0...v2.1.1
-[2.1.0]: https://github.com/metarhia/config/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/metarhia/config/compare/v1.x...v2.0.0
-[1.x]: https://github.com/metarhia/config/compare/v0.x...v1.x
-[0.x]: https://github.com/metarhia/config/releases/tag/v0.x
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.4...HEAD
+[2.1.4]: https://github.com/metarhia/metaconfiguration/compare/v2.1.3...v2.1.4
+[2.1.3]: https://github.com/metarhia/metaconfiguration/compare/v2.1.1...v2.1.3
+[2.1.1]: https://github.com/metarhia/metaconfiguration/compare/v2.1.0...v2.1.1
+[2.1.0]: https://github.com/metarhia/metaconfiguration/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/metarhia/metaconfiguration/compare/v1.x...v2.0.0
+[1.x]: https://github.com/metarhia/metaconfiguration/compare/v0.x...v1.x
+[0.x]: https://github.com/metarhia/metaconfiguration/releases/tag/v0.x
