@@ -1,22 +1,22 @@
 # Metarhia Configuration Loader
 
-[![ci status](https://github.com/metarhia/config/workflows/Testing%20CI/badge.svg)](https://github.com/metarhia/config/actions?query=workflow%3A%22Testing+CI%22+branch%3Amaster)
-[![snyk](https://snyk.io/test/github/metarhia/config/badge.svg)](https://snyk.io/test/github/metarhia/config)
-[![npm version](https://badge.fury.io/js/%40metarhia%2Fconfig.svg)](https://badge.fury.io/js/%40metarhia%2Fconfig)
-[![npm downloads/month](https://img.shields.io/npm/dm/@metarhia/config.svg)](https://www.npmjs.com/package/@metarhia/config)
-[![npm downloads](https://img.shields.io/npm/dt/@metarhia/config.svg)](https://www.npmjs.com/package/@metarhia/config)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/metarhia/config/blob/master/LICENSE)
+[![ci status](https://github.com/metarhia/metaconfiguration/workflows/Testing%20CI/badge.svg)](https://github.com/metarhia/metaconfiguration/actions?query=workflow%3A%22Testing+CI%22+branch%3Amaster)
+[![snyk](https://snyk.io/test/github/metarhia/metaconfiguration/badge.svg)](https://snyk.io/test/github/metarhia/metaconfiguration)
+[![npm version](https://badge.fury.io/js/metaconfiguration.svg)](https://badge.fury.io/js/metaconfiguration)
+[![npm downloads/month](https://img.shields.io/npm/dm/metaconfiguration.svg)](https://www.npmjs.com/package/metaconfiguration)
+[![npm downloads](https://img.shields.io/npm/dt/metaconfiguration.svg)](https://www.npmjs.com/package/metaconfiguration)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/metarhia/metaconfiguration/blob/master/LICENSE)
 
 ## Installation
 
-- `npm install @metarhia/config --save`
-- `const { Config } = require('@metarhia/config');`
+- `npm install metaconfiguration --save`
+- `const { Config } = require('metaconfiguration');`
 
 ## Usage
 
 Load configuration with asynchronous constructor:
 ```js
-const { Config } = require('@metarhia/config');
+const { Config } = require('metaconfiguration');
 const config = await new Config('./configDirectory');
 console.log(config);
 // Output example:
@@ -37,24 +37,24 @@ console.log(config);
 ```
 or factory:
 ```js
-const { readConfig } = require('@metarhia/config');
+const { readConfig } = require('metaconfiguration');
 const config = await readConfig('./configDirectory');
 ```
 Specify certain configuration sections to load:
 ```js
-const { Config } = require('@metarhia/config');
+const { Config } = require('metaconfiguration');
 const options = { names: ['application', 'gateway'] };
 const config = await new Config('./configDirectory', options);
 ```
 Loag configuration in specified mode:
 ```js
-const { Config } = require('@metarhia/config');
+const { Config } = require('metaconfiguration');
 const options = { mode: 'test' };
 const config = await new Config('./configDirectory', options);
 ```
 Specify sections and mode:
 ```js
-const { Config } = require('@metarhia/config');
+const { Config } = require('metaconfiguration');
 const options = { mode: 'test', names: ['application', 'gateway'] };
 const config = await new Config('./configDirectory', options);
 ```
@@ -62,7 +62,7 @@ Use custom context (sandbox) to execute configuration js file in it:
 ```js
 const vm = require('vm');
 const common = require('@metarhia/common');
-const { Config } = require('@metarhia/config');
+const { Config } = require('metaconfiguration');
 const sandbox = { Duration: common.duration };
 vm.createContext(sandbox);
 const options = { sandbox };
