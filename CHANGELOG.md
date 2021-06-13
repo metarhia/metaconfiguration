@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+- `Config` and `readConfig` type definitions updated
+
 ## [2.1.4][] - 2021-05-20
 
 - First release `metaconfiguration`, previously `@metarhia/config`
