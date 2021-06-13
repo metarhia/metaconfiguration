@@ -10,7 +10,7 @@ interface ConfigOptions {
 export class Config {
   sections: object;
   path: string;
-  names: Array<string>;
+  names: Array<string> | null;
   mode: string;
   context: vm.Context;
   constructor(dirPath: string, options?: ConfigOptions);
