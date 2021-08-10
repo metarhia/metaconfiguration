@@ -45,7 +45,7 @@
     "node": "^12.9 || 14 || 15"
   },
   "dependencies": {
-    "metavm": "^1.0.2"
+    "metavm": "^1.0.3"
   },
   "devDependencies": {
     "@metarhia/common": "^2.2.0",
