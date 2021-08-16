@@ -3,6 +3,7 @@
 ## [Unreleased][unreleased]
 
 - Move types to package root
+- Update dependencies
 
 ## [2.1.4][] - 2021-05-20
 
