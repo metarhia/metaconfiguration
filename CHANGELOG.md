@@ -4,6 +4,7 @@
 
 - Move types to package root
 - Update dependencies
+- Add node.js v16 to CI and remove v15
 
 ## [2.1.4][] - 2021-05-20
 
