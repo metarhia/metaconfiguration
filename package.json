@@ -30,15 +30,16 @@
     "url": "https://www.patreon.com/tshemsedinov"
   },
   "main": "config.js",
-  "types": "types/config.d.ts",
+  "types": "config.d.ts",
   "readmeFilename": "README.md",
   "files": [
-    "types/"
+    "types/",
+    "config.d.ts"
   ],
   "scripts": {
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
     "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
-    "types": "tsc -p types/tsconfig.json",
+    "types": "tsc -p tsconfig.json",
     "test": "npm run -s lint && npm run types && metatests test"
   },
   "engines": {

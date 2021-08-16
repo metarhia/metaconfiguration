@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+- Move types to package root
+
 ## [2.1.4][] - 2021-05-20
 
 - First release `metaconfiguration`, previously `@metarhia/config`
