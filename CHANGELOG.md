@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.5][] - 2021-08-17
+
 - Move types to package root
 - Update dependencies
 - Add node.js v16 to CI and remove v15
@@ -48,7 +50,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.4...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.5...HEAD
+[2.1.5]: https://github.com/metarhia/metaconfiguration/compare/v2.1.4...v2.1.5
 [2.1.4]: https://github.com/metarhia/metaconfiguration/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/metarhia/metaconfiguration/compare/v2.1.1...v2.1.3
 [2.1.1]: https://github.com/metarhia/metaconfiguration/compare/v2.1.0...v2.1.1
