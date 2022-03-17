@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+- Update dependencies
+
 ## [2.1.5][] - 2021-08-17
 
 - Move types to package root
