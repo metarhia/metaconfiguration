@@ -15,6 +15,7 @@
 ## Usage
 
 Load configuration with asynchronous constructor:
+
 ```js
 const { Config } = require('metaconfiguration');
 const config = await new Config('./configDirectory');
@@ -35,30 +36,40 @@ console.log(config);
 //   }
 // }
 ```
+
 or factory:
+
 ```js
 const { readConfig } = require('metaconfiguration');
 const config = await readConfig('./configDirectory');
 ```
+
 Specify certain configuration sections to load:
+
 ```js
 const { Config } = require('metaconfiguration');
 const options = { names: ['application', 'gateway'] };
 const config = await new Config('./configDirectory', options);
 ```
+
 Loag configuration in specified mode:
+
 ```js
 const { Config } = require('metaconfiguration');
 const options = { mode: 'test' };
 const config = await new Config('./configDirectory', options);
 ```
+
 Specify sections and mode:
+
 ```js
 const { Config } = require('metaconfiguration');
 const options = { mode: 'test', names: ['application', 'gateway'] };
 const config = await new Config('./configDirectory', options);
 ```
+
 Use custom context (sandbox) to execute configuration js file in it:
+
 ```js
 const vm = require('vm');
 const common = require('@metarhia/common');
@@ -68,3 +79,9 @@ vm.createContext(sandbox);
 const options = { sandbox };
 const config = await new Config('./configDirectory', options);
 ```
+
+## License & Contributors
+
+Copyright (c) 2022 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
+Metaconfiguration is [MIT licensed](./LICENSE).\
+Metaconfiguration is a part of [Metarhia](https://github.com/metarhia) technology stack.
