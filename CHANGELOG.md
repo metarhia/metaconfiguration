@@ -2,9 +2,15 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.7][] - 2022-05-19
+
+- Improve security (new metavm)
+- Update dependencies and supported nodejs version
+
 ## [2.1.6][] - 2022-03-17
 
 - Update dependencies
+- Improve security (new metavm)
 
 ## [2.1.5][] - 2021-08-17
 
@@ -54,7 +60,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.6...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.7...HEAD
+[2.1.7]: https://github.com/metarhia/metaconfiguration/compare/v2.1.6...v2.1.7
 [2.1.6]: https://github.com/metarhia/metaconfiguration/compare/v2.1.5...v2.1.6
 [2.1.5]: https://github.com/metarhia/metaconfiguration/compare/v2.1.4...v2.1.5
 [2.1.4]: https://github.com/metarhia/metaconfiguration/compare/v2.1.3...v2.1.4
