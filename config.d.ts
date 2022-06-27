@@ -20,5 +20,5 @@ export class Config {
 
 export function readConfig(
   dirPath: string,
-  options?: ConfigOptions
+  options?: ConfigOptions,
 ): Promise<Config>;
