@@ -2,6 +2,10 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.8][] - 2022-06-28
+
+- Update dependencies and package maintenance
+
 ## [2.1.7][] - 2022-05-19
 
 - Improve security (new metavm)
@@ -60,7 +64,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.7...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.8...HEAD
+[2.1.8]: https://github.com/metarhia/metaconfiguration/compare/v2.1.7...v2.1.8
 [2.1.7]: https://github.com/metarhia/metaconfiguration/compare/v2.1.6...v2.1.7
 [2.1.6]: https://github.com/metarhia/metaconfiguration/compare/v2.1.5...v2.1.6
 [2.1.5]: https://github.com/metarhia/metaconfiguration/compare/v2.1.4...v2.1.5
