@@ -50,7 +50,7 @@
     "@metarhia/common": "^2.2.0",
     "@types/node": "^17.0.34",
     "eslint": "^8.15.0",
-    "eslint-config-metarhia": "^7.0.1",
+    "eslint-config-metarhia": "^8.1.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
