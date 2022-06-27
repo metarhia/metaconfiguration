@@ -1,6 +1,6 @@
 {
   "name": "metaconfiguration",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "description": "Metarhia Configuration Loader",
   "license": "MIT",
