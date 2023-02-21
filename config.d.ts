@@ -1,4 +1,4 @@
-import * as vm from 'vm';
+import * as vm from 'node:vm';
 
 interface ConfigOptions {
   names?: Array<string>;
