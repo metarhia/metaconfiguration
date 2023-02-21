@@ -30,10 +30,7 @@
   "main": "config.js",
   "types": "config.d.ts",
   "readmeFilename": "README.md",
-  "files": [
-    "types/",
-    "config.d.ts"
-  ],
+  "files": ["types/", "config.d.ts"],
   "scripts": {
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
     "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
@@ -41,13 +38,13 @@
     "test": "npm run -s lint && npm run types && metatests test"
   },
   "engines": {
-    "node": "14 || 16 || 18 || 19"
+    "node": "^14.18 || 16 || 18 || 19"
   },
   "dependencies": {
     "metavm": "^1.2.2"
   },
   "devDependencies": {
-    "@metarhia/common": "^2.2.0",
+    "metautil": "^3.6.0",
     "@types/node": "^18.11.9",
     "eslint": "^8.27.0",
     "eslint-config-metarhia": "^8.1.0",
