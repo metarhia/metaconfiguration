@@ -71,10 +71,10 @@ const config = await new Config('./configDirectory', options);
 Use custom context (sandbox) to execute configuration js file in it:
 
 ```js
-const vm = require('vm');
-const common = require('@metarhia/common');
+const vm = require('node:vm');
+const metautil = require('metautil');
 const { Config } = require('metaconfiguration');
-const sandbox = { Duration: common.duration };
+const sandbox = { Duration: metautil.duration };
 vm.createContext(sandbox);
 const options = { sandbox };
 const config = await new Config('./configDirectory', options);
@@ -82,6 +82,6 @@ const config = await new Config('./configDirectory', options);
 
 ## License & Contributors
 
-Copyright (c) 2022 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
+Copyright (c) 2019-2023 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
 Metaconfiguration is [MIT licensed](./LICENSE).\
 Metaconfiguration is a part of [Metarhia](https://github.com/metarhia) technology stack.
