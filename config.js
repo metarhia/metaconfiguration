@@ -1,8 +1,8 @@
 'use strict';
 
 const metavm = require('metavm');
-const path = require('path');
-const fsp = require('fs').promises;
+const path = require('node:path');
+const fsp = require('node:fs').promises;
 
 class Config {
   constructor(dirPath, options = {}) {
