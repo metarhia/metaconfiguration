@@ -1,7 +1,7 @@
 'use strict';
 
-const vm = require('vm');
-const common = require('@metarhia/common');
+const vm = require('node:vm');
+const metautil = require('metautil');
 const { Config, readConfig } = require('..');
 const metatests = require('metatests');
 
@@ -34,7 +34,7 @@ metatests.test('Server with logger', async (test) => {
       toStdout: ['system', 'fatal', 'error'],
     },
   };
-  const context = { Duration: common.duration };
+  const context = { duration: metautil.duration };
   vm.createContext(context);
   const options = { context };
   const config = await new Config('./examples/example2', options);
@@ -43,13 +43,13 @@ metatests.test('Server with logger', async (test) => {
 });
 
 metatests.test('Application server', async (test) => {
-  const context = { Duration: common.duration };
+  const context = { duration: metautil.duration };
   const sections = {
     application: { name: 'Application name' },
     gateway: { host: '10.0.0.1', port: 2000 },
     dependencies: {
       internal: ['fs', 'path', 'http'],
-      external: ['@metarhia/common', 'metasync', 'eslint'],
+      external: ['metautil', 'metasync', 'eslint'],
     },
     server: { transport: 'http', address: '127.0.0.1', ports: 8080 },
     timeouts: { cache: 30000, relpy: 5000, query: 3000 },

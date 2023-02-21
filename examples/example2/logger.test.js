@@ -1,7 +1,7 @@
 ({
   enabled: true,
   keepDays: 100,
-  writeInterval: Duration('3s'),
+  writeInterval: duration('3s'),
   writeBuffer: 64 * 1024,
   toFile: [
     'system',

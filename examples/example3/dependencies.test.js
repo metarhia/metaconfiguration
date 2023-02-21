@@ -1,4 +1,4 @@
 ({
   internal: ['fs', 'path', 'http'],
-  external: ['@metarhia/common', 'metasync', 'eslint'],
+  external: ['metautil', 'metasync', 'eslint'],
 });
