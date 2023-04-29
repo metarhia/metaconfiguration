@@ -2,6 +2,12 @@
 
 ## [Unreleased][unreleased]
 
+## [2.1.11][] - 2023-04-29
+
+- Drop node.js 14 support, add node.js 20
+- Convert package_lock.json to lockfileVersion 2
+- Update dependencies
+
 ## [2.1.10][] - 2023-03-14
 
 - Add `node:` prefix in require for built-in modules
@@ -73,7 +79,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.10...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.11...HEAD
+[2.1.11]: https://github.com/metarhia/metaconfiguration/compare/v2.1.10...v2.1.11
 [2.1.10]: https://github.com/metarhia/metaconfiguration/compare/v2.1.9...v2.1.10
 [2.1.9]: https://github.com/metarhia/metaconfiguration/compare/v2.1.8...v2.1.9
 [2.1.8]: https://github.com/metarhia/metaconfiguration/compare/v2.1.7...v2.1.8
