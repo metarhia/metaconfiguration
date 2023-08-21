@@ -41,7 +41,7 @@
     "node": "16 || 18 || 19 || 20"
   },
   "dependencies": {
-    "metavm": "^1.2.4"
+    "metavm": "^1.2.6"
   },
   "devDependencies": {
     "@types/node": "^18.15.2",
