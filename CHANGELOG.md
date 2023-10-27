@@ -2,6 +2,11 @@
 
 ## [Unreleased][unreleased]
 
+## [2.2.0][] - 2023-10-27
+
+- Drop node 16 and 19, add node 21 support
+- Update dependencies and package maintenance
+
 ## [2.1.11][] - 2023-04-29
 
 - Drop node.js 14 support, add node.js 20
@@ -79,7 +84,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.1.11...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/metarhia/metaconfiguration/compare/v2.1.11...v2.2.0
 [2.1.11]: https://github.com/metarhia/metaconfiguration/compare/v2.1.10...v2.1.11
 [2.1.10]: https://github.com/metarhia/metaconfiguration/compare/v2.1.9...v2.1.10
 [2.1.9]: https://github.com/metarhia/metaconfiguration/compare/v2.1.8...v2.1.9
