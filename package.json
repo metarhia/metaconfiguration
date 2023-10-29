@@ -30,7 +30,10 @@
   "main": "config.js",
   "types": "config.d.ts",
   "readmeFilename": "README.md",
-  "files": ["types/", "config.d.ts"],
+  "files": [
+    "types/",
+    "config.d.ts"
+  ],
   "scripts": {
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
     "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
