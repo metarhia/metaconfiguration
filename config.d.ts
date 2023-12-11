@@ -4,7 +4,6 @@ interface ConfigOptions {
   names?: Array<string>;
   mode?: string;
   context?: vm.Context;
-  sandbox?: vm.Context;
 }
 
 export class Config {
