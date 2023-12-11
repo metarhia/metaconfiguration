@@ -2,7 +2,10 @@
 
 ## [Unreleased][unreleased]
 
+## [3.0.0][] - 2023-12-11
+
 - Drop support of options `{ sandbox }` use `{ context }` instead
+- Package maintenance
 
 ## [2.2.0][] - 2023-10-27
 
@@ -86,7 +89,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v2.2.0...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/metarhia/metaconfiguration/compare/v2.2.0...v3.0.0
 [2.2.0]: https://github.com/metarhia/metaconfiguration/compare/v2.1.11...v2.2.0
 [2.1.11]: https://github.com/metarhia/metaconfiguration/compare/v2.1.10...v2.1.11
 [2.1.10]: https://github.com/metarhia/metaconfiguration/compare/v2.1.9...v2.1.10
