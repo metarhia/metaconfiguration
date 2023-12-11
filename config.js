@@ -6,12 +6,12 @@ const fsp = require('node:fs').promises;
 
 class Config {
   constructor(dirPath, options = {}) {
-    const { names, mode, context, sandbox } = options;
+    const { names, mode, context } = options;
     this.sections = {};
     this.path = dirPath;
     this.names = names || null;
     this.mode = mode || '';
-    this.context = context || sandbox || metavm.createContext();
+    this.context = context || metavm.createContext();
     return this.load();
   }
 

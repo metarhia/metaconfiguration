@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+- Drop support of options `{ sandbox }` use `{ context }` instead
+
 ## [2.2.0][] - 2023-10-27
 
 - Drop node 16 and 19, add node 21 support

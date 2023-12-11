@@ -74,9 +74,9 @@ Use custom context (sandbox) to execute configuration js file in it:
 const vm = require('node:vm');
 const metautil = require('metautil');
 const { Config } = require('metaconfiguration');
-const sandbox = { Duration: metautil.duration };
-vm.createContext(sandbox);
-const options = { sandbox };
+const context = { duration: metautil.duration };
+vm.createContext(context);
+const options = { context };
 const config = await new Config('./configDirectory', options);
 ```
 
