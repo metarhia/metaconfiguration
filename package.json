@@ -47,15 +47,12 @@
     "metavm": "^1.4.1"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
-    "eslint": "^8.55.0",
-    "eslint-config-metarhia": "^8.2.2",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^5.0.0",
+    "@types/node": "^22.3.0",
+    "eslint": "^9.9.0",
+    "eslint-config-metarhia": "^9.0.3",
     "metatests": "^0.8.2",
     "metautil": "^5.0.0",
-    "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
   }
 }
