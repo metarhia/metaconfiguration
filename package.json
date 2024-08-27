@@ -41,7 +41,7 @@
     "test": "npm run -s lint && npm run types && metatests test"
   },
   "engines": {
-    "node": "18 || 20 || 21"
+    "node": "18 || 20 || 21 || 22"
   },
   "dependencies": {
     "metavm": "^1.4.1"
