@@ -1,6 +1,6 @@
 {
   "name": "metaconfiguration",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "description": "Metarhia Configuration Loader",
   "license": "MIT",
@@ -47,11 +47,11 @@
     "metavm": "^1.4.1"
   },
   "devDependencies": {
-    "@types/node": "^22.3.0",
-    "eslint": "^9.9.0",
-    "eslint-config-metarhia": "^9.0.3",
+    "@types/node": "^22.5.1",
+    "eslint": "^9.9.1",
+    "eslint-config-metarhia": "^9.0.5",
     "metatests": "^0.8.2",
-    "metautil": "^5.0.0",
+    "metautil": "^5.2.3",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   }

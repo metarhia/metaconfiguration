@@ -82,6 +82,6 @@ const config = await new Config('./configDirectory', options);
 
 ## License & Contributors
 
-Copyright (c) 2019-2023 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
+Copyright (c) 2019-2024 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
 Metaconfiguration is [MIT licensed](./LICENSE).\
 Metaconfiguration is a part of [Metarhia](https://github.com/metarhia) technology stack.
