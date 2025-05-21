@@ -2,6 +2,11 @@
 
 ## [Unreleased][unreleased]
 
+## [3.0.2][] - 2025-05-21
+
+- Add node.js 23 and 24 to CI
+- Update dependencies
+
 ## [3.0.1][] - 2024-08-30
 
 - Update eslint to 9.x and prettier
@@ -94,7 +99,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v3.0.1...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v3.0.2...HEAD
+[3.0.2]: https://github.com/metarhia/metaconfiguration/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/metarhia/metaconfiguration/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/metarhia/metaconfiguration/compare/v2.2.0...v3.0.0
 [2.2.0]: https://github.com/metarhia/metaconfiguration/compare/v2.1.11...v2.2.0
