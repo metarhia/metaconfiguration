@@ -2,6 +2,13 @@
 
 ## [Unreleased][unreleased]
 
+## [4.0.0-prerelease.1][] - 2025-09-09
+
+- Refactor to use private fields and methods for better encapsulation
+- Use async factory method instead of async constructor
+- Improve TypeScript definitions
+- Update documentation and examples
+
 ## [3.0.3][] - 2025-09-09
 
 - Refactor to use node.js native test runner
@@ -105,7 +112,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v3.0.3...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v4.0.0-prerelease.1...HEAD
+[4.0.0-prerelease.1]: https://github.com/metarhia/metaconfiguration/compare/v3.0.3...v4.0.0-prerelease.1
 [3.0.3]: https://github.com/metarhia/metaconfiguration/compare/v3.0.2...v3.0.3
 [3.0.2]: https://github.com/metarhia/metaconfiguration/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/metarhia/metaconfiguration/compare/v3.0.0...v3.0.1
