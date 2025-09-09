@@ -7,17 +7,13 @@ interface ConfigOptions {
 }
 
 export class Config {
-  sections: object;
-  path: string;
-  names: Array<string>;
-  mode: string;
-  context: vm.Context;
+  #path: string;
+  #names: Array<string>;
+  #mode: string;
+  #context: vm.Context;
+  #sections: object;
   constructor(dirPath: string, options?: ConfigOptions);
-  load(): Promise<object>;
-  loadFile(file: string): Promise<void>;
+  static create(dirPath: string, options?: ConfigOptions): Promise<Config>;
+  #load(): Promise<object>;
+  #loadFile(file: string): Promise<void>;
 }
-
-export function readConfig(
-  dirPath: string,
-  options?: ConfigOptions,
-): Promise<Config>;
