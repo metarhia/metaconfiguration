@@ -2,6 +2,12 @@
 
 ## [Unreleased][unreleased]
 
+## [3.0.3][] - 2025-09-09
+
+- Refactor to use node.js native test runner
+- Update dependencies
+- Remove node.js 21, 23 from CI, engine >=18
+
 ## [3.0.2][] - 2025-05-21
 
 - Add node.js 23 and 24 to CI
@@ -99,7 +105,8 @@
 - Support mode (log files second ext): `options.mode`
 - Support passing custom sandbox: `options.sandbox`
 
-[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v3.0.2...HEAD
+[unreleased]: https://github.com/metarhia/metaconfiguration/compare/v3.0.3...HEAD
+[3.0.3]: https://github.com/metarhia/metaconfiguration/compare/v3.0.2...v3.0.3
 [3.0.2]: https://github.com/metarhia/metaconfiguration/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/metarhia/metaconfiguration/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/metarhia/metaconfiguration/compare/v2.2.0...v3.0.0
