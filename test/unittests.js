@@ -72,7 +72,7 @@ test('Application server', async () => {
 
   // Test timeouts config
   strictEqual(config.timeouts.cache, 30000);
-  strictEqual(config.timeouts.relpy, 5000);
+  strictEqual(config.timeouts.reply, 5000);
   strictEqual(config.timeouts.query, 3000);
 });
 

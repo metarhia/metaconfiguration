@@ -52,7 +52,7 @@ const options = { names: ['application', 'gateway'] };
 const config = await new Config('./configDirectory', options);
 ```
 
-Loag configuration in specified mode:
+Load configuration in specified mode:
 
 ```js
 const { Config } = require('metaconfiguration');
