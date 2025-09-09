@@ -14,11 +14,11 @@
 
 ## Usage
 
-Load configuration with asynchronous constructor:
+Load configuration with factory method:
 
 ```js
 const { Config } = require('metaconfiguration');
-const config = await new Config('./configDirectory');
+const config = await Config.create('./configDirectory');
 console.log(config);
 // Output example:
 // {
@@ -37,19 +37,12 @@ console.log(config);
 // }
 ```
 
-or factory:
-
-```js
-const { readConfig } = require('metaconfiguration');
-const config = await readConfig('./configDirectory');
-```
-
 Specify certain configuration sections to load:
 
 ```js
 const { Config } = require('metaconfiguration');
 const options = { names: ['application', 'gateway'] };
-const config = await new Config('./configDirectory', options);
+const config = await Config.create('./configDirectory', options);
 ```
 
 Load configuration in specified mode:
@@ -57,7 +50,7 @@ Load configuration in specified mode:
 ```js
 const { Config } = require('metaconfiguration');
 const options = { mode: 'test' };
-const config = await new Config('./configDirectory', options);
+const config = await Config.create('./configDirectory', options);
 ```
 
 Specify sections and mode:
@@ -65,7 +58,7 @@ Specify sections and mode:
 ```js
 const { Config } = require('metaconfiguration');
 const options = { mode: 'test', names: ['application', 'gateway'] };
-const config = await new Config('./configDirectory', options);
+const config = await Config.create('./configDirectory', options);
 ```
 
 Use custom context (sandbox) to execute configuration js file in it:
@@ -77,7 +70,7 @@ const { Config } = require('metaconfiguration');
 const context = { duration: metautil.duration };
 vm.createContext(context);
 const options = { context };
-const config = await new Config('./configDirectory', options);
+const config = await Config.create('./configDirectory', options);
 ```
 
 ## License & Contributors
