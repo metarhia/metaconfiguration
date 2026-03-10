@@ -1,7 +1,7 @@
 'use strict';
 
 const { test } = require('node:test');
-const { strictEqual } = require('node:assert');
+const { strictEqual, rejects, deepStrictEqual } = require('node:assert');
 const vm = require('node:vm');
 const metautil = require('metautil');
 const { Config } = require('../config.js');
@@ -42,7 +42,7 @@ test('Server with logger', async () => {
   strictEqual(config.logger.toStdout[2], 'error');
 });
 
-test('Application server', async () => {
+test('Application server with test mode', async () => {
   const context = { duration: metautil.duration };
   vm.createContext(context);
   const options = { context, mode: 'test' };
@@ -76,27 +76,44 @@ test('Application server', async () => {
   strictEqual(config.timeouts.query, 3000);
 });
 
-test('Incorrect path error', async () => {
-  try {
-    const config = await Config.create('./examples/example4');
-    console.dir(config);
-  } catch (error) {
-    strictEqual(error.code, 'ENOENT');
-  }
+test('Application server with debug mode', async () => {
+  const context = { duration: metautil.duration };
+  vm.createContext(context);
+  const options = { context, mode: 'debug' };
+  const config = await Config.create('./examples/example3', options);
+
+  strictEqual(config.application.name, 'Application name: Debug mode');
+
+  strictEqual(config.dependencies.internal.length, 5);
+  strictEqual(config.dependencies.internal[3], 'v8');
+  strictEqual(config.dependencies.internal[4], 'timers');
+
+  strictEqual(config.server.transport, 'http');
+  strictEqual(config.server.address, '127.0.0.1');
+  strictEqual(config.server.ports, 80);
 });
 
-test('Specified sections', async () => {
+test('Incorrect path error', async () => {
+  await rejects(Config.create('./examples/example4'), { code: 'ENOENT' });
+});
+
+test('Specified sections filters correctly', async () => {
   const options = { names: ['application', 'gateway'] };
   const config = await Config.create('./examples/example3', options);
   strictEqual(config.application.name, 'Application name');
+  strictEqual(config.server, undefined);
+  strictEqual(config.dependencies, undefined);
+  strictEqual(config.timeouts, undefined);
 });
 
-test('Specified sections with options', async () => {
+test('Specified sections with mode', async () => {
   const options = { mode: 'test', names: ['application', 'gateway'] };
   const config = await Config.create('./examples/example3', options);
   strictEqual(config.application.name, 'Application name');
   strictEqual(config.gateway.host, '10.0.0.1');
   strictEqual(config.gateway.port, 2000);
+  strictEqual(config.server, undefined);
+  strictEqual(config.dependencies, undefined);
 });
 
 test('Compatibility with old signature', async () => {
@@ -106,4 +123,9 @@ test('Compatibility with old signature', async () => {
   const config = await Config.create('./examples/example5', options);
   strictEqual(config.application.name, 'Application name');
   strictEqual(config.application.user, process.env.USER);
+});
+
+test('Empty config directory', async () => {
+  const config = await Config.create('./examples/example6');
+  deepStrictEqual(config, {});
 });
