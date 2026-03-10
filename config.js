@@ -1,21 +1,21 @@
 'use strict';
 
 const path = require('node:path');
-const fsp = require('node:fs').promises;
+const fsp = require('node:fs/promises');
 const { createContext, readScript } = require('metavm');
 
 class Config {
-  #path;
-  #names = [];
-  #mode;
-  #context;
+  #path = '';
+  #names = new Set();
+  #mode = '';
+  #context = null;
   #sections = {};
 
   constructor(dirPath, options = {}) {
     const { names, mode, context } = options;
     this.#path = dirPath;
-    if (names) this.#names = names;
-    this.#mode = mode || '';
+    if (names) this.#names = new Set(names);
+    if (mode) this.#mode = mode;
     this.#context = context || createContext();
     return this.#load();
   }
@@ -26,7 +26,8 @@ class Config {
 
   async #load() {
     const files = await fsp.readdir(this.#path);
-    const mode = '.' + this.#mode;
+    const fileSet = new Set(files);
+    const mode = `.${this.#mode}`;
     const names = this.#names;
     const pending = [];
     for (const file of files) {
@@ -35,11 +36,11 @@ class Config {
       const fileName = path.basename(file, fileExt);
       const fileMode = path.extname(fileName);
       const sectionName = path.basename(fileName, fileMode);
-      if (names.length > 0 && !names.includes(sectionName)) continue;
+      if (names.size > 0 && !names.has(sectionName)) continue;
       if (!this.#mode && fileName.includes('.')) continue;
       if (fileMode && fileMode !== mode) continue;
       const defaultName = `${fileName}${mode}.js`;
-      if (!files.includes(defaultName)) pending.push(this.#loadFile(file));
+      if (!fileSet.has(defaultName)) pending.push(this.#loadFile(file));
     }
     await Promise.all(pending);
     return this.#sections;
