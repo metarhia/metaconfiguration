@@ -75,6 +75,6 @@ const config = await Config.create('./configDirectory', options);
 
 ## License & Contributors
 
-Copyright (c) 2019-2025 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
+Copyright (c) 2019-2026 [Metarhia contributors](https://github.com/metarhia/metaconfiguration/blob/master/AUTHORS).
 Metaconfiguration is [MIT licensed](./LICENSE).\
 Metaconfiguration is a part of [Metarhia](https://github.com/metarhia) technology stack.
