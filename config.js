@@ -2,6 +2,7 @@
 
 const path = require('node:path');
 const fsp = require('node:fs/promises');
+
 const { createContext, readScript } = require('metavm');
 
 class Config {
@@ -16,7 +17,7 @@ class Config {
     this.#path = dirPath;
     if (names) this.#names = new Set(names);
     if (mode) this.#mode = mode;
-    this.#context = context || createContext();
+    this.#context = context ?? createContext();
     return this.#load();
   }
 
@@ -39,8 +40,9 @@ class Config {
       if (names.size > 0 && !names.has(sectionName)) continue;
       if (!this.#mode && fileName.includes('.')) continue;
       if (fileMode && fileMode !== mode) continue;
-      const defaultName = `${fileName}${mode}.js`;
-      if (!fileSet.has(defaultName)) pending.push(this.#loadFile(file));
+      const modeFileName = `${fileName}${mode}.js`;
+      if (fileSet.has(modeFileName)) continue;
+      pending.push(this.#loadFile(file));
     }
     await Promise.all(pending);
     return this.#sections;
@@ -48,7 +50,8 @@ class Config {
 
   async #loadFile(file) {
     const configFile = path.join(this.#path, file);
-    const sectionName = file.substring(0, file.indexOf('.'));
+    const dotIndex = file.indexOf('.');
+    const sectionName = file.substring(0, dotIndex);
     const options = { context: this.#context };
     const { exports } = await readScript(configFile, options);
     this.#sections[sectionName] = exports;
